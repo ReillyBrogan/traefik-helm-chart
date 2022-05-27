@@ -482,6 +482,19 @@ affinity: {}
 #         topologyKey: kubernetes.io/hostname
 nodeSelector: {}
 tolerations: []
+topologySpreadConstraints: []
+# # This example topologySpreadConstraints will cause the scheduler to attempt to spread
+# # traefik pods evenly through available topology zones (on public cloud deployments these
+# # correspond to availability zones). 
+#   - labelSelector:
+#       matchExpressions:
+#         - key: app.kubernetes.io/name
+#           operator: In
+#           values:
+#             - {{ template "traefik.name" . }}
+#     maxSkew: 1
+#     topologyKey: topology.kubernetes.io/zone
+#     whenUnsatisfiable: ScheduleAnyway
 
 # Pods can have priority.
 # Priority indicates the importance of a Pod relative to other Pods.
